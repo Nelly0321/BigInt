@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.15)
+set(CMAKE_CXX_STANDARD 17)
+project(proj)
+add_executable(a main.cpp)
+add_library(BIGINT bigint.cpp)
+target_link_libraries(a BIGINT)
