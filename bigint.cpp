@@ -391,21 +391,27 @@ BigInt& BigInt::operator^=(const BigInt& rhs)
     if(rhs == zero){
         *this = BigInt(1);
         return *this;
+    }if(rhs == 1){
+        return *this;
     }
     if(rhs>=2){
         *this = tmp;
     }
 	BigInt ex = rhs/2;
-    ex--;
+    if(ex != zero){
+        ex--;
+    }
     while(ex != zero){
         ex--;
         *this *= tmp;
     }
+
     if(rhs%2 !=zero){
         *this *= in;
     }
     return *this;
 }
+
 
 BigInt operator^(BigInt lhs, const BigInt& rhs)
 {
